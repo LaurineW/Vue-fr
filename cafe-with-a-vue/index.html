@@ -27,9 +27,9 @@
 			<p>Total: {{ totalAmount }}€</li>
 
 			<h2>Contactez nous</h2>
-			<p>Adresse : 18 avenue du Beurre, Paris, France</p>
+			<p>Adresse : {{ adresse }}</p>
 			<p>Téléphone : {{ tel }}</p>
-			<p>Email : hello@cafewithavue.bakery</p>
+			<p>Email : {{ mail }}</p>
 			<p>Horaires :</p>
 			<ul>
 				<li>L-V: 06:00 à 16:00</li>
@@ -38,11 +38,11 @@
 			</ul>
 
 			<footer class="footer">
-				<p>Copyright {{ restaurantName }} 2019</p>
+				<p>Copyright {{ copyright }} 2019</p>
 			</footer>
 		</div>
 
-		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
 		<script>
 			const app = new Vue({
 				el: "#app",
@@ -52,12 +52,15 @@
 					costOfBananas: 2,
 					costOfCoconuts: 8,
 					tel:"01 88 88 88 88",
-					mail:,
-					adresse:,
+					mail:"hello@cafewithavue.bakery",
+					adresse:"18 avenue du Beurre, Paris, France",
 				},
 				computed: {
 					totalAmount() {
 					  return this.costOfApples + this.costOfBananas + this.costOfCoconuts
+					},
+					copyright(){
+						return this.restaurantName
 					}
 				  }
 			})
