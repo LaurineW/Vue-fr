@@ -16,10 +16,19 @@
 				matin ou avec un goûter réconfortant. Mais attention, vous verrez qu'il
 				est difficile de s'arrêter.
 			</p>
+			<h1>VueMart</h1>
+
+			<h2>Panier</h2>
+			<ul>
+				<li>Pommes: {{ costOfApples }}€</li>
+				<li>Bananes: {{ costOfBananas }}€</li>
+				<li>Noix de coco: {{ costOfCoconuts }}€</li>
+			</ul>
+			<p>Total: {{ totalAmount }}€</li>
 
 			<h2>Contactez nous</h2>
 			<p>Adresse : 18 avenue du Beurre, Paris, France</p>
-			<p>Téléphone : 01 88 88 88 88</p>
+			<p>Téléphone : {{ tel }}</p>
 			<p>Email : hello@cafewithavue.bakery</p>
 			<p>Horaires :</p>
 			<ul>
@@ -38,8 +47,19 @@
 			const app = new Vue({
 				el: "#app",
 				data: {
-					restaurantName: "La belle vue"
-				}
+					restaurantName: "Café avec vue",
+					costOfApples: 6,
+					costOfBananas: 2,
+					costOfCoconuts: 8,
+					tel:"01 88 88 88 88",
+					mail:,
+					adresse:,
+				},
+				computed: {
+					totalAmount() {
+					  return this.costOfApples + this.costOfBananas + this.costOfCoconuts
+					}
+				  }
 			})
 		</script>
 	</body>
